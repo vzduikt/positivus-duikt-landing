@@ -389,7 +389,6 @@ template {
   }
   body {
     font-size: var(--font-size-body);
-    background-color: var(--color-primary);
   }
 
   h1 {

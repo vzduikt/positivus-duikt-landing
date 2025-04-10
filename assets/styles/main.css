@@ -383,6 +383,12 @@ template {
     --font-size-h3: var(--font-size-md);
     --font-size-h4: var(--font-size-sm);
     --font-size-body: var(--font-size-xsm);
+
+    /*Border radius*/
+    --border-radius-md: 14px;
+
+    /*Transition*/
+    --transition-base-time: .2s;
   }
   html {
     font-family: var(--font-family-primary);
@@ -391,7 +397,8 @@ template {
     font-size: var(--font-size-body);
   }
 
-  h1 {
+  h1,
+  .h1 {
     font-size: var(--font-size-h1);
   }
 
@@ -405,5 +412,41 @@ template {
 
   h4 {
     font-size: var(--font-size-h4);
+  }
+}
+
+@layer components {
+  .btn {
+    --btn-base-font-size: var(--font-size-sm, 20px);
+    --btn-base-text-color: var(--color-black, #000);
+    --btn-base-background-color: var(--color-white, #fff);
+    --btn-border: 1px solid var(--color-black, #000);
+    --btn-base-padding-inline: 35px;
+    --btn-base-padding-block: 20px;
+    --btn-border-radius: var(--border-radius-md, 14px);
+    --btn-hover-background-color: var(--color-black, #000);
+    --btn-hover-color: var(--color-white, #fff);
+
+    font-size: var(--btn-base-font-size);
+    color: var(--btn-base-text-color);
+    background-color: var(--btn-base-background-color);
+    padding-inline: var(--btn-base-padding-inline);
+    padding-block: var(--btn-base-padding-block);
+    border: var(--btn-border);
+    border-radius: var(--btn-border-radius);
+    text-decoration: none;
+    transition: all var(--transition-base-time);
+
+    &:hover {
+      background-color: var(--btn-hover-background-color);
+      color: var(--btn-hover-color);
+    }
+
+    &.btn--primary {
+      --btn-base-background-color: var(--color-black);
+      --btn-base-text-color: var(--color-white);
+      --btn-hover-background-color: var(--color-white, #fff);
+      --btn-hover-color: var(--color-black, #000);
+    }
   }
 }

@@ -572,7 +572,7 @@
     --section-proposal-content-gap: 26px;
     --section-proposal-content-max-width: 500px;
     --section-proposal-media-position: absolute;
-    --section-proposal-media-position-top: -2rem;
+    --section-proposal-media-position-top: -32px;
     --section-proposal-media-position-right: 0;
 
     padding-block: var(--section-proposal-padding-block);

@@ -558,6 +558,42 @@
       --card-background-color: var(--color-primary);
     }
   }
+
+  .main-header {
+    --main-header-padding-block: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--main-header-padding-block);
+  }
+
+  .main-nav {
+    --main-nav-margin-left: auto;
+    --main-nav-margin-right: 40px;
+    --main-nav-element-gap: 40px;
+    --main-nav-links-color: var(--color-black);
+    --main-nav-links-font-size: var(--font-size-sm);
+
+    margin-left: var(--main-nav-margin-left);
+    margin-right: var(--main-nav-margin-right);
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: var(--main-nav-element-gap);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      font-size: var(--main-nav-links-font-size);
+      line-height: 1.4;
+      color: var(--main-nav-links-color);
+      text-decoration: none;
+    }
+  }
 }
 
 @layer sections {

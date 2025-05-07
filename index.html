@@ -275,6 +275,44 @@
           />
         </div>
       </section>
+      <section class="section contact">
+        <div class="heading-block">
+          <h2 class="heading-block__title">Contact Us</h2>
+          <p class="heading-block__description">
+            Connect with Us: Let's Discuss Your Digital Marketing Needs
+          </p>
+        </div>
+        <div class="contact-form contact__form">
+          <form class="form" action="">
+            <fieldset>
+              <input type="checkbox" />
+              <input type="checkbox" />
+            </fieldset>
+            <fieldset class="form-fieldset__vertical">
+              <div class="form-input__row form-input__row--vertical">
+                <label class="label" for="contact-name">Name</label>
+                <input id="contact-name" type="text" placeholder="Name" />
+              </div>
+              <div class="form-input__row form-input__row--vertical">
+                <label class="label" for="contact-email">Email*</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <textarea
+                class="input input--textarea"
+                name="message"
+                id="contact-message"
+                placeholder="Message"
+              ></textarea>
+            </fieldset>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+          </form>
+        </div>
+      </section>
     </main>
     <footer class="main-footer">
       <div class="main-footer__top">
@@ -419,6 +457,7 @@
           <div>
             <label for="user-email" class="sr-only">User email</label>
             <input id="user-email" placeholder="Email" type="email" />
+            <textarea class="input"></textarea>
             <button type="submit" class="btn btn--accent">
               Subscribe to news
             </button>

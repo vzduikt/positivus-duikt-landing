@@ -283,15 +283,50 @@
           </p>
         </div>
         <div class="contact-form contact__form">
-          <form class="form" action="">
-            <fieldset>
-              <input type="checkbox" />
-              <input type="checkbox" />
+          <form class="form">
+            <fieldset class="form-fieldset__horizontal">
+              <legend class="sr-only">
+                Choose one of the options if you want to contact us
+              </legend>
+              <div class="radio-item">
+                <input
+                  type="radio"
+                  id="option1"
+                  value="Say Hi"
+                  name="options"
+                  checked
+                />
+                <label for="option1">
+                  <div class="radio-custom"></div>
+                  Say Hi
+                </label>
+              </div>
+
+              <div class="radio-item">
+                <input
+                  type="radio"
+                  id="option2"
+                  value="Get a Quote"
+                  name="options"
+                />
+                <label for="option2">
+                  <div class="radio-custom"></div>
+                  Get a Quote
+                </label>
+              </div>
             </fieldset>
             <fieldset class="form-fieldset__vertical">
+              <legend class="sr-only">
+                Please provide name, email and message if you want to contact us
+              </legend>
               <div class="form-input__row form-input__row--vertical">
                 <label class="label" for="contact-name">Name</label>
-                <input id="contact-name" type="text" placeholder="Name" />
+                <input
+                  id="contact-name"
+                  type="text"
+                  placeholder="Name"
+                  name="user-name"
+                />
               </div>
               <div class="form-input__row form-input__row--vertical">
                 <label class="label" for="contact-email">Email*</label>
@@ -299,15 +334,20 @@
                   id="contact-email"
                   type="email"
                   placeholder="Email"
+                  name="user-email"
                   required
                 />
               </div>
-              <textarea
-                class="input input--textarea"
-                name="message"
-                id="contact-message"
-                placeholder="Message"
-              ></textarea>
+              <div class="form-input__row form-input__row--vertical">
+                <label for="contact-message"> Message* </label>
+                <textarea
+                  class="input input--textarea"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Message"
+                  required
+                ></textarea>
+              </div>
             </fieldset>
             <button type="submit" class="btn btn--primary">Send Message</button>
           </form>
@@ -457,7 +497,6 @@
           <div>
             <label for="user-email" class="sr-only">User email</label>
             <input id="user-email" placeholder="Email" type="email" />
-            <textarea class="input"></textarea>
             <button type="submit" class="btn btn--accent">
               Subscribe to news
             </button>
@@ -482,14 +521,35 @@
     const currentYear = new Date().getFullYear();
     document.querySelector('.year').textContent = currentYear;
 
-    const footerForm = document.querySelector('.main-footer__form');
+    const contactFormItem = document.querySelector('.contact-form .form');
 
-    footerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    contactFormItem.addEventListener('submit', (formElement) => {
+      formElement.preventDefault();
 
-      const formData = new FormData(footerForm);
+      const formData = new FormData(formElement.target);
+      const formRadioOption = formData.get('options');
+      const formName = formData.get('user-name');
+      const formEmail = formData.get('user-email');
+      const formMessage = formData.get('message');
 
-      console.log(formData);
+      const objectData = {
+        formRadioOption,
+        formName,
+        formEmail,
+        formMessage,
+      };
+
+      const strinfigyData = JSON.stringify(objectData);
+
+      const response = fetch(
+        'https://webhook.site/e1aa0000-c106-42a3-8da1-6cf9056bd6d1',
+        {
+          method: 'POST',
+          body: strinfigyData,
+        }
+      )
+        .then((res) => console.log(res))
+        .catch((error) => console.log(error));
     });
   </script>
 </html>

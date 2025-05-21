@@ -521,35 +521,17 @@
     const currentYear = new Date().getFullYear();
     document.querySelector('.year').textContent = currentYear;
 
-    const contactFormItem = document.querySelector('.contact-form .form');
+    const contactForm = document.querySelector('.contact .contact-form');
 
-    contactFormItem.addEventListener('submit', (formElement) => {
-      formElement.preventDefault();
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-      const formData = new FormData(formElement.target);
-      const formRadioOption = formData.get('options');
-      const formName = formData.get('user-name');
-      const formEmail = formData.get('user-email');
-      const formMessage = formData.get('message');
+      const formData = new FormData(event.target);
 
-      const objectData = {
-        formRadioOption,
-        formName,
-        formEmail,
-        formMessage,
-      };
-
-      const strinfigyData = JSON.stringify(objectData);
-
-      const response = fetch(
-        'https://webhook.site/e1aa0000-c106-42a3-8da1-6cf9056bd6d1',
-        {
-          method: 'POST',
-          body: strinfigyData,
-        }
-      )
-        .then((res) => console.log(res))
-        .catch((error) => console.log(error));
+      fetch('https://webhook.site/e1aa0000-c106-42a3-8da1-6cf9056bd6d1', {
+        method: 'POST',
+        body: formData,
+      });
     });
   </script>
 </html>

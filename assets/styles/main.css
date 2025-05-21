@@ -429,11 +429,18 @@
   html {
     font-family: var(--font-family-primary);
   }
+
   body {
     font-size: var(--font-size-body);
     max-width: var(--body-layout-max-width);
     padding-inline: var(--body-inline-padding);
     margin-inline: auto;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
 
   h1,
@@ -488,7 +495,7 @@
     }
   }
 
-  input[type="radio"] {
+  input[type='radio'] {
     width: var(--input-radio-size);
     height: var(--input-radio-size);
     border: 1px solid var(--color-black);
@@ -498,59 +505,59 @@
       accent-color: green;
     }
   }
-  
-        .radio-item {
-          --radio-item-size: 28px;
-          --radio-background-color: var(--color-white);
-          --radio-border-color: var(--color-secondary);
-          --radio-border: 1px solid var(--radio-border-color);
-          --radio-custom-margin-right: 14px;
-          --radio-checked-bacground-color: var(--color-primary);
-          --radio-checked-bacground-color-size: 16px;
-        }
 
-        .radio-item input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-        }
+  .radio-item {
+    --radio-item-size: 28px;
+    --radio-background-color: var(--color-white);
+    --radio-border-color: var(--color-secondary);
+    --radio-border: 1px solid var(--radio-border-color);
+    --radio-custom-margin-right: 14px;
+    --radio-checked-bacground-color: var(--color-primary);
+    --radio-checked-bacground-color-size: 16px;
+  }
 
-        .radio-item label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-        }
+  .radio-item input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
 
-        .radio-custom {
-            width: var(--radio-item-size);
-            height: var(--radio-item-size);
-            background-color: var(--radio-background-color);
-            border: var(--radio-border);
-            border-radius: 50%;
-            margin-right: var( --radio-custom-margin-right);
-            position: relative;
-        }
+  .radio-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
 
-        .radio-item input[type="radio"]:checked + label .radio-custom {
-            border-color: var(--radio-border-color);
-        }
+  .radio-custom {
+    width: var(--radio-item-size);
+    height: var(--radio-item-size);
+    background-color: var(--radio-background-color);
+    border: var(--radio-border);
+    border-radius: 50%;
+    margin-right: var(--radio-custom-margin-right);
+    position: relative;
+  }
 
-        .radio-item input[type="radio"]:checked + label .radio-custom::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            width: var(--radio-checked-bacground-color-size);
-            height: var(--radio-checked-bacground-color-size);
-            border-radius: 50%;
-            background-color: var(--radio-checked-bacground-color);
-        }
+  .radio-item input[type='radio']:checked + label .radio-custom {
+    border-color: var(--radio-border-color);
+  }
 
-        .radio-item label:hover .radio-custom {
-            border-color: var(--radio-border-color);
-        }
+  .radio-item input[type='radio']:checked + label .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: var(--radio-checked-bacground-color-size);
+    height: var(--radio-checked-bacground-color-size);
+    border-radius: 50%;
+    background-color: var(--radio-checked-bacground-color);
+  }
+
+  .radio-item label:hover .radio-custom {
+    border-color: var(--radio-border-color);
+  }
 
   fieldset {
     padding: 0;
@@ -559,7 +566,7 @@
   }
 
   label {
-    &:has(input[type="radio"]) {
+    &:has(input[type='radio']) {
       display: flex;
       align-items: center;
       gap: 14px;
@@ -773,8 +780,9 @@
     --main-footer-padding: 50px 60px;
     --main-footer-text-color: var(--color-white);
     --main-footer-border-radius: 45px 45px 0px 0px;
-    --input-background-color:
+    --main-footer-margin-top: 140px;
 
+    margin-top: var(--main-footer-margin-top);
     border-radius: var(--main-footer-border-radius);
     background-color: var(--main-footer-background-color);
     padding: var(--main-footer-padding);
@@ -868,7 +876,7 @@
       --input-color: var(--color-white);
       --input-height: 68px;
 
-      button[type="submit"] {
+      button[type='submit'] {
         height: var(--input-height);
       }
     }

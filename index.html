@@ -71,16 +71,27 @@
           </defs>
         </svg>
       </a>
-      <nav class="main-nav main-header__nav">
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Use Cases</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </nav>
-      <a href="/request-a-quote" class="btn">Request a Quote</a>
+      <div class="main-header__menu">
+        <nav class="main-nav main-header__nav">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Use Cases</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </nav>
+        <a href="/request-a-quote" class="btn">Request a Quote</a>
+        <button class="close-btn">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <button class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
     <main>
       <section class="hero">
@@ -532,6 +543,22 @@
         method: 'POST',
         body: formData,
       });
+    });
+
+    // Header menu logic
+
+    const headerMenu = document.querySelector('.main-header__menu');
+    const headerMenuOpenButton = document.querySelector('.menu-icon');
+    const headerMenuCloseButton = document.querySelector('.close-btn');
+
+    headerMenuOpenButton.addEventListener('click', (e) => {
+      headerMenu.classList.add('active');
+    });
+
+    headerMenuCloseButton.addEventListener('click', () => {
+      headerMenu.classList.contains('active')
+        ? headerMenu.classList.remove('active')
+        : null;
     });
   </script>
 </html>

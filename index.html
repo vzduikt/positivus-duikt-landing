@@ -553,12 +553,14 @@
 
     headerMenuOpenButton.addEventListener('click', (e) => {
       headerMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
 
     headerMenuCloseButton.addEventListener('click', () => {
       headerMenu.classList.contains('active')
         ? headerMenu.classList.remove('active')
         : null;
+      document.body.style.overflow = 'auto';
     });
   </script>
 </html>
